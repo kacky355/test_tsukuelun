@@ -1,0 +1,28 @@
+{% extends "application.html" %}
+{% block body %}
+<script>
+    const question_list = {{ questions_list|tojson }};
+    let current_id=0;
+</script>
+
+<h1>解答解説</h1>
+
+<div class = "container" id="contents_place_holder">
+    <div class="row">
+        <div class="col">
+            <div id="question_place_holder">
+                <script>
+                    window.onload = function(){
+                        seeQuestionList();
+                    }
+                </script>
+            </div>
+        </div>
+    <div>
+</div>
+
+{% endblock body %}
+
+{% block script %}
+<script type="text/javascript" src={{url_for('static',filename='js/exam_result.js')}}></script>
+{% endblock script %}

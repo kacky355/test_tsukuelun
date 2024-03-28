@@ -1,0 +1,39 @@
+{% extends "application.html" %}
+{% block body %}
+<script>
+    const question_list = {{ questions_list|tojson }};
+    const has_answer = false;
+    let current_id=0;
+    const time_limit_minutes = {{ time_limit_minutes }};
+
+</script>
+<!-- 問題番号のリストを表示するボタン-->
+
+
+<!-- 指定idに応じて問題を挿入-->
+<div class = "container" id="results_place_holder">
+    <div id="time_bar_holder"></div>
+    <div class="row">
+        <div class = "" id="question_place_holder">
+            <div class="row">
+                <h1>試験画面</h1>
+                <h2>試験タイトル</h2>
+                <p>制限時間120分</p>
+                <p>ブラウザバックをするとそこまでの内容が消えます。ご注意を</p>
+            </div>
+
+            <div class="row">
+                <button type="button" class="btn btn-bd-primary" onclick=start_exam() id="start_btn">試験開始</button>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock body %}
+
+{% block script %}
+<script type="text/javascript" src={{ url_for('static', filename='js/exam.js') }}></script>
+{% endblock script %}

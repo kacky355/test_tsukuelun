@@ -1,0 +1,9 @@
+{% extends "application.html" %}
+{% block body %}
+
+<h2>試験選択</h2>
+
+{% for exam in exams %}
+    <p><a href={{url_for('exam',exam_id=loop.index)}}>{{exam}}</p>
+{% endfor %}
+{% endblock body %}
